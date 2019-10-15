@@ -12,10 +12,11 @@
 	<artifactId>store-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>store-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Desafio de recrutamento da Invillia</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<springfox-swagger.version>2.8.0</springfox-swagger.version>
 	</properties>
 
 	<dependencies>
@@ -31,7 +32,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -57,6 +57,16 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-swagger.version}</version>
 		</dependency>
 	</dependencies>
 
