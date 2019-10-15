@@ -6,10 +6,12 @@ import com.challenge.storeservice.model.Store;
 import com.challenge.storeservice.repository.StoreRepository;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class StoreBusinessImpl implements StoreBusiness {
     @Autowired
     private StoreRepository storeRepository;
