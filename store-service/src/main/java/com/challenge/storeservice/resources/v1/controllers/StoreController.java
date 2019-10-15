@@ -4,6 +4,9 @@ import com.challenge.storeservice.business.StoreBusiness;
 import com.challenge.storeservice.resources.mapper.StoreMapper;
 import com.challenge.storeservice.resources.v1.dtos.StoreRequestDto;
 import com.challenge.storeservice.resources.v1.dtos.StoreResponseDto;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +28,14 @@ public class StoreController {
 
     @PostMapping
     @ResponseBody
+    @ApiOperation(value = "Create Store", response = StoreResponseDto.class, produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 201, message = "Created"),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 409, message = "Conflict"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")})
     public ResponseEntity<Optional<StoreResponseDto>> create(@RequestBody @Valid final StoreRequestDto saleRequestDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(storeMapper
@@ -35,7 +46,14 @@ public class StoreController {
 
     @GetMapping
     @ResponseBody
-    public ResponseEntity<Optional<List<StoreResponseDto>>> read(@PathVariable final Integer id) {
+    @ApiOperation(value = "Get All Stores", response = StoreResponseDto.class, produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")})
+    public ResponseEntity<Optional<List<StoreResponseDto>>> read() {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(storeMapper
@@ -44,6 +62,13 @@ public class StoreController {
 
     @PutMapping
     @ResponseBody
+    @ApiOperation(value = "Update Store", response = StoreResponseDto.class, produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")})
     public ResponseEntity<Optional<StoreResponseDto>> update(@RequestBody @Valid final StoreRequestDto saleRequestDto) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(storeMapper
@@ -54,6 +79,13 @@ public class StoreController {
 
     @DeleteMapping("/{id}")
     @ResponseBody
+    @ApiOperation(value = "Delete Store By ID", response = StoreResponseDto.class, produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")})
     public ResponseEntity<Void> delete(@PathVariable final Integer id) {
         storeBusiness.delete(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
@@ -61,6 +93,13 @@ public class StoreController {
 
     @GetMapping("/{id}")
     @ResponseBody
+    @ApiOperation(value = "Get Store By ID", response = StoreResponseDto.class, produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")})
     public ResponseEntity<Optional<StoreResponseDto>> findById(@PathVariable final Integer id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
