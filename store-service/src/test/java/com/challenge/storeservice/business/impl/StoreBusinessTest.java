@@ -6,7 +6,6 @@ import com.challenge.storeservice.exception.StoreNotFoundException;
 import com.challenge.storeservice.model.Store;
 import com.challenge.storeservice.repository.StoreRepository;
 import com.challenge.storeservice.seed.StoreSeeder;
-import com.github.javafaker.Faker;
 import lombok.var;
 import org.junit.Assert;
 import org.junit.Test;
@@ -33,8 +32,6 @@ public class StoreBusinessTest {
 
     @Autowired
     private StoreBusiness storeBusiness;
-
-    private static final Faker faker = new Faker();
 
     @Test
     public void createStore() {
@@ -86,6 +83,22 @@ public class StoreBusinessTest {
         this.storeBusiness.findById(1);
     }
 
+    @Test(expected = StoreNotFoundException.class)
+    public void updateStoreIdZero() {
+        Mockito.when(this.storeRepository.findById(0))
+                .thenThrow(new StoreNotFoundException());
+
+        this.storeBusiness.findById(1);
+    }
+
+    @Test(expected = StoreNotFoundException.class)
+    public void updateStoreIdNegative() {
+        Mockito.when(this.storeRepository.findById(-1))
+                .thenThrow(new StoreNotFoundException());
+
+        this.storeBusiness.findById(1);
+    }
+
     @Test
     public void findByIdExist() {
         Mockito.when(this.storeRepository.findById(1))
@@ -101,6 +114,22 @@ public class StoreBusinessTest {
     @Test(expected = StoreNotFoundException.class)
     public void findByIdNotExist() {
         Mockito.when(this.storeRepository.findById(ArgumentMatchers.anyInt()))
+                .thenThrow(new StoreNotFoundException());
+
+        this.storeBusiness.findById(1);
+    }
+
+    @Test(expected = StoreNotFoundException.class)
+    public void findByIdZero() {
+        Mockito.when(this.storeRepository.findById(0))
+                .thenThrow(new StoreNotFoundException());
+
+        this.storeBusiness.findById(1);
+    }
+
+    @Test(expected = StoreNotFoundException.class)
+    public void findByIdNegative() {
+        Mockito.when(this.storeRepository.findById(-1))
                 .thenThrow(new StoreNotFoundException());
 
         this.storeBusiness.findById(1);
