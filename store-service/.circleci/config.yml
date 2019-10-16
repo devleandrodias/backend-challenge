@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/store-service
+    working_directory: ~/backend-challenge/store-service
     docker:
       - image: maven:3.6-jdk-11-slim
         environment:
