@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/store-service
+    docker:
+      - image: maven:3.6-jdk-11-slim
+        environment:
+          #### MAVEN ####
+          MYSQL_USER: challenge
+          MYSQL_PASSWORD: '!@12QWqw'
+          MYSQL_DATABASE: challenge
+          MYSQL_PORT: 3306
+          MYSQL_HOST: localhost
+      - image: mysql:5.7
+        environment:
+          #### MYSQL ####
+          MYSQL_ROOT_PASSWORD: challenge
+          MYSQL_DATABASE: challenge
+          MYSQL_USER: challenge
+          MYSQL_PASSWORD: '!@12QWqw'
+    steps:
+      - checkout
+      - restore_cache:
+          key: store-service-{{ checksum "pom.xml" }}
+      - run: mvn dependency:go-offline
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: store-service-{{ checksum "pom.xml" }}
+      - run: mvn clean install
+      - store_artifacts:
+          path: target/store-service*.jar
