@@ -107,7 +107,7 @@ public class StoreController {
                         .serializeToDto(storeBusiness.findById(id)));
     }
 
-    @GetMapping
+    @GetMapping("/filter")
     @ResponseBody
     @ApiOperation(value = "Find Stores", response = StoreResponseDto.class, produces = "application/json")
     @ApiResponses(value = {

@@ -134,4 +134,15 @@ public class StoreBusinessTest {
 
         this.storeBusiness.findById(1);
     }
+
+    @Test
+    public void findByParameters() {
+        Mockito.when(this.storeRepository.findByParameters("teste"))
+                .thenReturn(Arrays.asList(StoreSeeder.store(1), StoreSeeder.store(2)));
+
+        var stores = storeBusiness.findByParameters("teste");
+
+        Assert.assertTrue(stores.isPresent());
+        Assert.assertTrue(stores.get().size() > 0);
+    }
 }

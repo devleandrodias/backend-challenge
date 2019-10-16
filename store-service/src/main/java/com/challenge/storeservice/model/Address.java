@@ -1,10 +1,6 @@
 package com.challenge.storeservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.codehaus.jackson.annotate.JsonBackReference;
 
 import javax.persistence.*;
@@ -16,6 +12,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Builder
 @Entity
 @Table(name = "store_address", schema = "challenge")
