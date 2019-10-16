@@ -5,6 +5,7 @@ import com.challenge.storeservice.resources.v1.dtos.StoreRequestDto;
 import com.challenge.storeservice.resources.v1.dtos.StoreResponseDto;
 import lombok.NonNull;
 import lombok.var;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,6 +14,9 @@ import java.util.Optional;
 
 @Component
 public class StoreMapper {
+    @Autowired
+    private StoreAddressMapper storeAddressMapper;
+
     public Optional<List<StoreResponseDto>> serializeListToDto(@NonNull final Optional<List<Store>> stores) {
 
         final var serializers = new ArrayList<StoreResponseDto>();
@@ -25,22 +29,28 @@ public class StoreMapper {
     }
 
     public Optional<StoreResponseDto> serializeToDto(@NonNull final Optional<Store> store) {
-        final var model = store.get();
+        final var dto = store.get();
+
+        final var address = storeAddressMapper.serializeListToDto(Optional.of(dto.getAddress()));
 
         return Optional.of(StoreResponseDto.builder()
-                .id(model.getId())
-                .name(model.getName())
-                .createdAt(model.getCreatedAt())
+                .id(dto.getId())
+                .name(dto.getName())
+                .address(address.get())
+                .createdAt(dto.getCreatedAt())
                 .build());
     }
 
-    public Optional<Store> serializeToModel(@NonNull final Optional<StoreRequestDto> store) {
-        final var dto = store.get();
+    public Optional<Store> serializeToModel(@NonNull final Optional<StoreRequestDto> storeRequest) {
+        final var model = storeRequest.get();
+
+        final var address = storeAddressMapper.serializeListToModel(Optional.of(model.getAddress()));
 
         return Optional.of(Store.builder()
-                .id(dto.getId())
-                .name(dto.getName())
-                .createdAt(dto.getCreatedAt())
+                .id(model.getId())
+                .name(model.getName())
+                .address(address.get())
+                .createdAt(model.getCreatedAt())
                 .build());
     }
 }

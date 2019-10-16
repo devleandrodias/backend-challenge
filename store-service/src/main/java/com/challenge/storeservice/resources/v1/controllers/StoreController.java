@@ -60,7 +60,7 @@ public class StoreController {
                         .serializeListToDto(storeBusiness.read()));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @ResponseBody
     @ApiOperation(value = "Update Store", response = StoreResponseDto.class, produces = "application/json")
     @ApiResponses(value = {
@@ -69,7 +69,7 @@ public class StoreController {
             @ApiResponse(code = 204, message = "No Content"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Internal Server Error")})
-    public ResponseEntity<Optional<StoreResponseDto>> update(@RequestBody @Valid final StoreRequestDto saleRequestDto) {
+    public ResponseEntity<Optional<StoreResponseDto>> update(@PathVariable final Integer id, @RequestBody @Valid final StoreRequestDto saleRequestDto) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(storeMapper
                         .serializeToDto(storeBusiness
