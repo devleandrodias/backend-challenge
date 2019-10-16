@@ -47,4 +47,9 @@ public class StoreBusinessImpl implements StoreBusiness {
         return Optional.of(storeRepository.findById(id)
                 .orElseThrow(StoreNotFoundException::new));
     }
+
+    @Override
+    public Optional<List<Store>> findByParameters(@NonNull String name) {
+        return Optional.of(storeRepository.findByParameters(name));
+    }
 }

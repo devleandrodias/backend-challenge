@@ -106,4 +106,20 @@ public class StoreController {
                 .body(storeMapper
                         .serializeToDto(storeBusiness.findById(id)));
     }
+
+    @GetMapping
+    @ResponseBody
+    @ApiOperation(value = "Find Stores", response = StoreResponseDto.class, produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")})
+    public ResponseEntity<Optional<List<StoreResponseDto>>> findByParameters(@RequestParam(required = false) final String name) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(storeMapper
+                        .serializeListToDto(storeBusiness.findByParameters(name)));
+    }
 }

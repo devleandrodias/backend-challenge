@@ -12,4 +12,5 @@ public interface StoreBusiness {
     Optional<Store> update(@NonNull final Store store);
     void delete(@NonNull final Integer id);
     Optional<Store> findById(@NonNull final Integer id);
+    Optional<List<Store>> findByParameters(@NonNull final String name);
 }
