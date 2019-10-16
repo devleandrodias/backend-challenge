@@ -27,8 +27,7 @@ public class Store implements Serializable {
     @Column
     private Date createdAt;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "store")
-    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "store")
     private List<Address> address;
 
     @PrePersist

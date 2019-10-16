@@ -5,7 +5,6 @@ import org.codehaus.jackson.annotate.JsonBackReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 @Getter
@@ -42,9 +41,8 @@ public class Address implements Serializable {
     @Column
     private String uf;
 
-    @JsonBackReference
-    @JoinColumn(name = "store_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id", nullable = false)
     private Store store;
 
     @Column
