@@ -1,7 +1,6 @@
 package com.challenge.storeservice.model;
 
 import lombok.*;
-import org.codehaus.jackson.annotate.JsonBackReference;
 
 import javax.persistence.*;
 import java.io.Serializable;

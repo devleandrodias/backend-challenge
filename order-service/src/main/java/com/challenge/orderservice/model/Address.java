@@ -3,8 +3,8 @@ package com.challenge.orderservice.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -13,22 +13,34 @@ import java.util.List;
 @ToString
 @Builder
 @Entity
-@Table(name = "order_item", schema = "challenge")
-public class Item {
+@Table(name = "order_address", schema = "challenge")
+public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
-    private String description;
+    private String street;
 
     @Column
-    private Number unitPrice;
+    private String number;
 
     @Column
-    private Integer quantity;
+    private String complement;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column
+    private String zipcode;
+
+    @Column
+    private String neighborhood;
+
+    @Column
+    private String city;
+
+    @Column
+    private String uf;
+
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
