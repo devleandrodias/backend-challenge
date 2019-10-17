@@ -1,11 +1,9 @@
 package com.challenge.orderservice.resources.v1.dtos;
 
-import com.challenge.orderservice.model.Address;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -13,12 +11,15 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Builder
-public class OrderResponseDto {
+public class OrderAddressResponseDto {
     private Integer id;
-    @JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
-    private Date confirmationDate;
-    private Address address;
-    private List<OrderItemResponseDto> item;
+    private String street;
+    private String number;
+    private String complement;
+    private String zipcode;
+    private String neighborhood;
+    private String city;
+    private String uf;
     @JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
     private Date createdAt;
 }

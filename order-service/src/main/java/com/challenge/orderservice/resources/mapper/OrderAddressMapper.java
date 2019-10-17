@@ -1,10 +1,8 @@
-package com.challenge.storeservice.resources.mapper;
+package com.challenge.orderservice.resources.mapper;
 
-import com.challenge.storeservice.model.Address;
-import com.challenge.storeservice.model.Store;
-import com.challenge.storeservice.resources.v1.dtos.StoreAddressRequestDto;
-import com.challenge.storeservice.resources.v1.dtos.StoreAddressResponseDto;
-import com.challenge.storeservice.resources.v1.dtos.StoreRequestDto;
+import com.challenge.orderservice.model.Address;
+import com.challenge.orderservice.resources.v1.dtos.OrderAddressRequestDto;
+import com.challenge.orderservice.resources.v1.dtos.OrderAddressResponseDto;
 import lombok.NonNull;
 import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +13,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class StoreAddressMapper {
+public class OrderAddressMapper {
     @Autowired
-    private StoreMapper storeMapper;
+    private OrderMapper orderMapper;
 
-    public Optional<List<StoreAddressResponseDto>> serializeListToDto(@NonNull final Optional<List<Address>> addresses) {
+    public Optional<List<OrderAddressResponseDto>> serializeListToDto(@NonNull final Optional<List<Address>> addresses) {
 
-        final var serializers = new ArrayList<StoreAddressResponseDto>();
+        final var serializers = new ArrayList<OrderAddressResponseDto>();
 
         addresses.ifPresent(t -> t.forEach(address -> {
             serializers.add(serializeToDto(Optional.of(address)).get());
@@ -30,10 +28,10 @@ public class StoreAddressMapper {
         return Optional.of(serializers);
     }
 
-    public Optional<StoreAddressResponseDto> serializeToDto(@NonNull final Optional<Address> address) {
+    public Optional<OrderAddressResponseDto> serializeToDto(@NonNull final Optional<Address> address) {
         final var dto = address.get();
 
-        return Optional.of(StoreAddressResponseDto.builder()
+        return Optional.of(OrderAddressResponseDto.builder()
                 .id(dto.getId())
                 .street(dto.getStreet())
                 .number(dto.getNumber())
@@ -46,19 +44,19 @@ public class StoreAddressMapper {
                 .build());
     }
 
-    public Optional<List<Address>> serializeListToModel(@NonNull final Optional<List<StoreAddressRequestDto>> storeAddressRequest) {
+    public Optional<List<Address>> serializeListToModel(@NonNull final Optional<List<OrderAddressRequestDto>> orderAddressRequest) {
 
         final var models = new ArrayList<Address>();
 
-        storeAddressRequest.ifPresent(t -> t.forEach(address -> {
+        orderAddressRequest.ifPresent(t -> t.forEach(address -> {
             models.add(serializeToModel(Optional.of(address)).get());
         }));
 
         return Optional.of(models);
     }
 
-    public Optional<Address> serializeToModel(@NonNull final Optional<StoreAddressRequestDto> storeAddressRequest) {
-        final var model = storeAddressRequest.get();
+    public Optional<Address> serializeToModel(@NonNull final Optional<OrderAddressRequestDto> orderAddressRequest) {
+        final var model = orderAddressRequest.get();
 
         return Optional.of(Address.builder()
                 .id(model.getId())

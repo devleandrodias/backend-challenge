@@ -5,7 +5,6 @@ import lombok.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -13,22 +12,41 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Builder
-public class OrderRequestDto {
+public class OrderAddressRequestDto {
     @Valid
-    @NotNull
     private Integer id;
 
     @Valid
     @NotNull
-    private Date confirmationDate;
+    private Integer order_id;
 
     @Valid
     @NotNull
-    private OrderAddressResponseDto address;
+    private String street;
 
     @Valid
     @NotNull
-    private List<OrderItemResponseDto> item;
+    private String number;
+
+    @Valid
+    @NotNull
+    private String complement;
+
+    @Valid
+    @NotNull
+    private String zipcode;
+
+    @Valid
+    @NotNull
+    private String neighborhood;
+
+    @Valid
+    @NotNull
+    private String city;
+
+    @Valid
+    @NotNull
+    private String uf;
 
     @Valid
     @NotNull
