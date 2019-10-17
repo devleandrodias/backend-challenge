@@ -22,10 +22,10 @@ public class Order {
     @Column
     private Date confirmationDate;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "store")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "order")
     private Address address;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "store")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "order")
     private List<Item> item;
 
     @Column

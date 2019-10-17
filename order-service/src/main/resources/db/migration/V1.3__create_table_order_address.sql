@@ -1,0 +1,14 @@
+CREATE TABLE challenge.order_address (
+  order_id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
+  street VARCHAR(300) NOT NULL,
+  number VARCHAR(100) NOT NULL,
+  complement VARCHAR(100) NOT NULL,
+  zipcode VARCHAR(10) NOT NULL,
+  neighborhood VARCHAR(100) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  uf VARCHAR(5) NOT NULL,
+  created_at DATETIME NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT FK_ORDER_ADDRESS FOREIGN KEY (order_id) REFERENCES order (id)
+);
