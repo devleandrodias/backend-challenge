@@ -1,5 +1,6 @@
 package com.challenge.storeservice.model;
 
+import org.codehaus.jackson.annotate.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,11 +24,12 @@ public class Store implements Serializable {
     @Column
     private String name;
 
-    @Column
-    private Date createdAt;
-
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "store")
     private List<Address> address;
+
+    @Column
+    private Date createdAt;
 
     @PrePersist
     protected void prePersist() {

@@ -24,8 +24,4 @@ public class StoreRequestDto {
     @Valid
     @NotNull
     private List<StoreAddressRequestDto> address;
-
-    @Valid
-    @NotNull
-    private Date createdAt;
 }

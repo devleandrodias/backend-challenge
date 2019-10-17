@@ -1,5 +1,6 @@
 package com.challenge.storeservice.model;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -40,6 +41,7 @@ public class Address implements Serializable {
     @Column
     private String uf;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id", nullable = false)
     private Store store;

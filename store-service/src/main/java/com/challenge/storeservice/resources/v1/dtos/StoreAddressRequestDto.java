@@ -18,10 +18,6 @@ public class StoreAddressRequestDto {
 
     @Valid
     @NotNull
-    private Integer store_id;
-
-    @Valid
-    @NotNull
     private String street;
 
     @Valid
@@ -47,8 +43,4 @@ public class StoreAddressRequestDto {
     @Valid
     @NotNull
     private String uf;
-
-    @Valid
-    @NotNull
-    private Date createdAt;
 }
