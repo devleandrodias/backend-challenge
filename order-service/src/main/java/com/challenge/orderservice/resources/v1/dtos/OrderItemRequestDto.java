@@ -2,7 +2,8 @@ package com.challenge.orderservice.resources.v1.dtos;
 
 import lombok.*;
 
-import java.util.Date;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -11,10 +12,18 @@ import java.util.Date;
 @ToString
 @Builder
 public class OrderItemRequestDto {
+    @Valid
     private Integer id;
+
+    @Valid
+    @NotNull
     private String description;
+
+    @Valid
+    @NotNull
     private Number unitPrice;
+
+    @Valid
+    @NotNull
     private Integer quantity;
-    private OrderResponseDto order;
-    private Date createdAt;
 }

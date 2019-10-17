@@ -10,5 +10,5 @@ CREATE TABLE challenge.order_address (
   uf VARCHAR(5) NOT NULL,
   created_at DATETIME NOT NULL,
   PRIMARY KEY (id),
-  CONSTRAINT FK_ORDER_ADDRESS FOREIGN KEY (order_id) REFERENCES order (id)
+  CONSTRAINT FK_ORDER_ADDRESS FOREIGN KEY (order_id) REFERENCES `order` (id)
 );

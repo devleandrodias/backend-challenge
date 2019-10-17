@@ -62,7 +62,6 @@ public class OrderItemMapper {
                 .description(model.getDescription())
                 .unitPrice(model.getUnitPrice())
                 .quantity(model.getQuantity())
-                .createdAt(model.getCreatedAt())
                 .build());
     }
 }

@@ -22,13 +22,9 @@ public class OrderRequestDto {
 
     @Valid
     @NotNull
-    private OrderAddressResponseDto address;
+    private OrderAddressRequestDto address;
 
     @Valid
     @NotNull
-    private List<OrderItemResponseDto> item;
-
-    @Valid
-    @NotNull
-    private Date createdAt;
+    private List<OrderItemRequestDto> item;
 }

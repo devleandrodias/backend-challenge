@@ -4,6 +4,7 @@ import com.challenge.orderservice.business.OrderBusiness;
 import com.challenge.orderservice.resources.mapper.OrderMapper;
 import com.challenge.orderservice.resources.v1.dtos.OrderRequestDto;
 import com.challenge.orderservice.resources.v1.dtos.OrderResponseDto;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -18,6 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/challenge/v1/orders")
+@Api("Restful CRUD for manipulating orders.")
 public class OrderController {
 
     @Autowired

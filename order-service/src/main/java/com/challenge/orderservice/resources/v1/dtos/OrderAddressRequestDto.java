@@ -47,8 +47,4 @@ public class OrderAddressRequestDto {
     @Valid
     @NotNull
     private String uf;
-
-    @Valid
-    @NotNull
-    private Date createdAt;
 }

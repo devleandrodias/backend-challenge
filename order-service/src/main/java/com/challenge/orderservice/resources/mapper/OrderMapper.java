@@ -41,7 +41,6 @@ public class OrderMapper {
         return Optional.of(Order.builder()
                 .id(model.getId())
                 .confirmationDate(model.getConfirmationDate())
-                .createdAt(model.getCreatedAt())
                 .build());
     }
 }

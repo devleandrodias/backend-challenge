@@ -1,5 +1,6 @@
 package com.challenge.orderservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -40,6 +41,7 @@ public class Address implements Serializable {
     @Column
     private String uf;
 
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;

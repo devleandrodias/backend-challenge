@@ -4,6 +4,7 @@ import com.challenge.storeservice.business.StoreBusiness;
 import com.challenge.storeservice.resources.mapper.StoreMapper;
 import com.challenge.storeservice.resources.v1.dtos.StoreRequestDto;
 import com.challenge.storeservice.resources.v1.dtos.StoreResponseDto;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -18,6 +19,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/challenge/v1/stores")
+@Api("Restful CRUD for manipulating stores.")
 public class StoreController {
 
     @Autowired

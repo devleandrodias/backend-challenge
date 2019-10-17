@@ -1,4 +1,4 @@
-package com.challenge.storeservice.security.config;
+package com.challenge.orderservice.security.config;
 
 import com.challenge.orderservice.security.filter.JwtAuthenticationFilter;
 import com.challenge.orderservice.security.handler.CustomAuthenticationEntryPoint;
