@@ -18,8 +18,8 @@ public class OrderBusinessImpl implements OrderBusiness {
     private OrderRepository orderRepository;
 
     @Override
-    public Optional<Order> create(@NonNull Order store) {
-        return Optional.of(orderRepository.saveAndFlush(store));
+    public Optional<Order> create(@NonNull Order order) {
+        return Optional.of(orderRepository.saveAndFlush(order));
     }
 
     @Override
@@ -28,11 +28,11 @@ public class OrderBusinessImpl implements OrderBusiness {
     }
 
     @Override
-    public Optional<Order> update(@NonNull Order store) {
-        orderRepository.findById(store.getId())
+    public Optional<Order> update(@NonNull Order order) {
+        orderRepository.findById(order.getId())
                 .orElseThrow(OrderNotFoundException::new);
 
-        return Optional.of(orderRepository.saveAndFlush(store));
+        return Optional.of(orderRepository.saveAndFlush(order));
     }
 
     @Override
