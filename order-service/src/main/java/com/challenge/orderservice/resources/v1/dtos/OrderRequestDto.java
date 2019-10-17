@@ -15,11 +15,9 @@ import java.util.List;
 @Builder
 public class OrderRequestDto {
     @Valid
-    @NotNull
     private Integer id;
 
     @Valid
-    @NotNull
     private Date confirmationDate;
 
     @Valid
