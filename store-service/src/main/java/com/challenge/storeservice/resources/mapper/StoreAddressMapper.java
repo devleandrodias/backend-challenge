@@ -69,6 +69,7 @@ public class StoreAddressMapper {
                 .neighborhood(model.getNeighborhood())
                 .city(model.getCity())
                 .uf(model.getUf())
+                .createdAt(model.getCreatedAt())
                 .build());
     }
 }

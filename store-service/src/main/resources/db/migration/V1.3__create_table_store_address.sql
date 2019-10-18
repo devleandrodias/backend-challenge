@@ -1,5 +1,5 @@
-CREATE TABLE challenge.store_address (
-  store_id INT DEFAULT NULL,
+CREATE TABLE challenge_store.store_address (
+  store_id INT,
   id INT NOT NULL AUTO_INCREMENT,
   street VARCHAR(300) NOT NULL,
   number VARCHAR(100) NOT NULL,

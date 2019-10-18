@@ -50,6 +50,7 @@ public class StoreMapper {
                 .id(model.getId())
                 .name(model.getName())
                 .address(address.get())
+                .createdAt(model.getCreatedAt())
                 .build());
     }
 }
