@@ -3,6 +3,7 @@ package com.challenge.saleservice.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "sale", schema = "challenge")
-public class Sale {
+public class Sale implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -22,10 +23,10 @@ public class Sale {
     @Column
     private Date confirmationDate;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "sale")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "sale")
     private Address address;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sale")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "sale")
     private List<Item> item;
 
     @Column

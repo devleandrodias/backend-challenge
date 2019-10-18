@@ -3,6 +3,7 @@ package com.challenge.saleservice.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -14,7 +15,7 @@ import java.util.Date;
 @Builder
 @Entity
 @Table(name = "sale_item", schema = "challenge")
-public class Item {
+public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

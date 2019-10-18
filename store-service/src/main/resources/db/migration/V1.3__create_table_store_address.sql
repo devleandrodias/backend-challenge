@@ -1,5 +1,5 @@
 CREATE TABLE challenge.store_address (
-  store_id INT NOT NULL,
+  store_id INT DEFAULT NULL,
   id INT NOT NULL AUTO_INCREMENT,
   street VARCHAR(300) NOT NULL,
   number VARCHAR(100) NOT NULL,

@@ -15,6 +15,7 @@ import java.util.List;
 @ToString
 @Builder
 @Entity
+@EqualsAndHashCode
 @Table(name = "store", schema = "challenge")
 public class Store implements Serializable {
     @Id
@@ -24,8 +25,8 @@ public class Store implements Serializable {
     @Column
     private String name;
 
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "store")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "store_id")
     private List<Address> address;
 
     @Column

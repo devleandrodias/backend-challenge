@@ -14,6 +14,7 @@ import java.util.Date;
 @ToString
 @Builder
 @Entity
+@EqualsAndHashCode
 @Table(name = "store_address", schema = "challenge")
 public class Address implements Serializable {
     @Id
@@ -40,11 +41,6 @@ public class Address implements Serializable {
 
     @Column
     private String uf;
-
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_id", nullable = false)
-    private Store store;
 
     @Column
     private Date createdAt;
