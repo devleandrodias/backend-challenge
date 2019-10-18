@@ -5,7 +5,6 @@ import com.challenge.saleservice.resources.v1.dtos.SaleAddressRequestDto;
 import com.challenge.saleservice.resources.v1.dtos.SaleAddressResponseDto;
 import lombok.NonNull;
 import lombok.var;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,9 +13,6 @@ import java.util.Optional;
 
 @Component
 public class SaleAddressMapper {
-    @Autowired
-    private SaleMapper saleMapper;
-
     public Optional<List<SaleAddressResponseDto>> serializeListToDto(@NonNull final Optional<List<Address>> addresses) {
 
         final var serializers = new ArrayList<SaleAddressResponseDto>();
@@ -40,6 +36,7 @@ public class SaleAddressMapper {
                 .neighborhood(dto.getNeighborhood())
                 .city(dto.getCity())
                 .uf(dto.getUf())
+                .type(dto.getType())
                 .createdAt(dto.getCreatedAt())
                 .build());
     }
@@ -67,6 +64,7 @@ public class SaleAddressMapper {
                 .neighborhood(model.getNeighborhood())
                 .city(model.getCity())
                 .uf(model.getUf())
+                .type(model.getType())
                 .build());
     }
 }

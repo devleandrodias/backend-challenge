@@ -1,5 +1,5 @@
-CREATE TABLE challenge.sale_address (
-  sale_id INT NOT NULL,
+CREATE TABLE challenge_sale.sale_address (
+  sale_id INT,
   id INT NOT NULL AUTO_INCREMENT,
   street VARCHAR(300) NOT NULL,
   number VARCHAR(100) NOT NULL,
@@ -8,6 +8,7 @@ CREATE TABLE challenge.sale_address (
   neighborhood VARCHAR(100) NOT NULL,
   city VARCHAR(100) NOT NULL,
   uf VARCHAR(5) NOT NULL,
+  type VARCHAR(50) NOT NULL,
   created_at DATETIME NOT NULL,
   PRIMARY KEY (id),
   CONSTRAINT FK_SALE_ADDRESS FOREIGN KEY (sale_id) REFERENCES sale (id)

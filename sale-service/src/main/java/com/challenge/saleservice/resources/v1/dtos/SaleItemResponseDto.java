@@ -14,10 +14,13 @@ import java.util.Date;
 @Builder
 public class SaleItemResponseDto {
     private Integer id;
+
     private String description;
+
     private BigDecimal price;
+
     private Integer quantity;
-    private SaleResponseDto order;
+
     @JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
     private Date createdAt;
 }

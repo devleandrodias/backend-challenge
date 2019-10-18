@@ -1,13 +1,10 @@
 package com.challenge.storeservice.resources.mapper;
 
 import com.challenge.storeservice.model.Address;
-import com.challenge.storeservice.model.Store;
 import com.challenge.storeservice.resources.v1.dtos.StoreAddressRequestDto;
 import com.challenge.storeservice.resources.v1.dtos.StoreAddressResponseDto;
-import com.challenge.storeservice.resources.v1.dtos.StoreRequestDto;
 import lombok.NonNull;
 import lombok.var;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,9 +13,6 @@ import java.util.Optional;
 
 @Component
 public class StoreAddressMapper {
-    @Autowired
-    private StoreMapper storeMapper;
-
     public Optional<List<StoreAddressResponseDto>> serializeListToDto(@NonNull final Optional<List<Address>> addresses) {
 
         final var serializers = new ArrayList<StoreAddressResponseDto>();

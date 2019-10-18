@@ -1,6 +1,5 @@
 package com.challenge.storeservice.model;
 
-import org.codehaus.jackson.annotate.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,7 +14,7 @@ import java.util.Date;
 @Builder
 @Entity
 @EqualsAndHashCode
-@Table(name = "store_address", schema = "challenge")
+@Table(name = "store_address", schema = "challenge_store")
 public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

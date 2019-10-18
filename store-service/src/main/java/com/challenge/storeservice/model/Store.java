@@ -1,6 +1,5 @@
 package com.challenge.storeservice.model;
 
-import org.codehaus.jackson.annotate.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ import java.util.List;
 @Builder
 @Entity
 @EqualsAndHashCode
-@Table(name = "store", schema = "challenge")
+@Table(name = "store", schema = "challenge_store")
 public class Store implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

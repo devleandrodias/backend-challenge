@@ -1,5 +1,5 @@
-CREATE TABLE challenge.sale_item (
-  sale_id INT NOT NULL,
+CREATE TABLE challenge_sale.sale_item (
+  sale_id INT,
   id INT NOT NULL AUTO_INCREMENT,
   description VARCHAR(300) NOT NULL,
   price DECIMAL(10,2) NOT NULL,

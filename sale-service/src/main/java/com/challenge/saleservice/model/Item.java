@@ -14,7 +14,8 @@ import java.util.Date;
 @ToString
 @Builder
 @Entity
-@Table(name = "sale_item", schema = "challenge")
+@EqualsAndHashCode
+@Table(name = "sale_item", schema = "challenge_sale")
 public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,10 +29,6 @@ public class Item implements Serializable {
 
     @Column
     private Integer quantity;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sale_id", nullable = false)
-    private Sale sale;
 
     @Column
     private Date createdAt;

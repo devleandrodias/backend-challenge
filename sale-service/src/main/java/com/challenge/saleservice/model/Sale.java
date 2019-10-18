@@ -1,6 +1,9 @@
 package com.challenge.saleservice.model;
 
+import com.challenge.saleservice.model.enums.Status;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +17,8 @@ import java.util.List;
 @ToString
 @Builder
 @Entity
-@Table(name = "sale", schema = "challenge")
+@EqualsAndHashCode
+@Table(name = "sale", schema = "challenge_sale")
 public class Sale implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,11 +27,18 @@ public class Sale implements Serializable {
     @Column
     private Date confirmationDate;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "sale")
-    private Address address;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "sale")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinColumn(name = "sale_id")
     private List<Item> item;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinColumn(name = "sale_id")
+    private List<Address> address;
 
     @Column
     private Date createdAt;

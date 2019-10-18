@@ -1,5 +1,6 @@
 package com.challenge.saleservice.model;
 
+import com.challenge.saleservice.model.enums.Type;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
@@ -14,7 +15,8 @@ import java.util.Date;
 @ToString
 @Builder
 @Entity
-@Table(name = "sale_address", schema = "challenge")
+@EqualsAndHashCode
+@Table(name = "sale_address", schema = "challenge_sale")
 public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,10 +43,8 @@ public class Address implements Serializable {
     @Column
     private String uf;
 
-    @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sale_id", nullable = false)
-    private Sale sale;
+    @Enumerated(EnumType.STRING)
+    private Type type;
 
     @Column
     private Date createdAt;

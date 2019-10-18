@@ -5,7 +5,6 @@ import com.challenge.saleservice.resources.v1.dtos.SaleItemRequestDto;
 import com.challenge.saleservice.resources.v1.dtos.SaleItemResponseDto;
 import lombok.NonNull;
 import lombok.var;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,9 +13,6 @@ import java.util.Optional;
 
 @Component
 public class SaleItemMapper {
-    @Autowired
-    private SaleMapper saleMapper;
-
     public Optional<List<SaleItemResponseDto>> serializeListToDto(@NonNull final Optional<List<Item>> itens) {
 
         final var serializers = new ArrayList<SaleItemResponseDto>();

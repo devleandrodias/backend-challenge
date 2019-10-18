@@ -1,7 +1,10 @@
 package com.challenge.saleservice.resources.v1.dtos;
 
+import com.challenge.saleservice.model.enums.Type;
 import lombok.*;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -42,6 +45,11 @@ public class SaleAddressRequestDto {
     @Valid
     @NotNull
     private String city;
+
+    @Valid
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Type type;
 
     @Valid
     @NotNull
