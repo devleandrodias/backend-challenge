@@ -1,5 +1,0 @@
-INSERT INTO `challenge`.`order_item` (`order_id`, `id`, `description`, `unitPrice`, `quantity`, `created_at`) VALUES (1, 1, 'Produto: Um', 1, 1, '2019-10-10 00:00:00');
-INSERT INTO `challenge`.`order_item` (`order_id`, `id`, `description`, `unitPrice`, `quantity`, `created_at`) VALUES (2, 2, 'Produto: Dois', 2, 2, '2019-10-10 00:00:00');
-INSERT INTO `challenge`.`order_item` (`order_id`, `id`, `description`, `unitPrice`, `quantity`, `created_at`) VALUES (3, 3, 'Produto: Três', 3, 3, '2019-10-10 00:00:00');
-INSERT INTO `challenge`.`order_item` (`order_id`, `id`, `description`, `unitPrice`, `quantity`, `created_at`) VALUES (4, 4, 'Produto: Quatro', 4, 4, '2019-10-10 00:00:00');
-INSERT INTO `challenge`.`order_item` (`order_id`, `id`, `description`, `unitPrice`, `quantity`, `created_at`) VALUES (5, 5, 'Produto: Cinco', 5, 5, '2019-10-10 00:00:00');
