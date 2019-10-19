@@ -24,9 +24,9 @@ public class SaleResponseDto {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    private List<SaleAddressResponseDto> address;
-
     private List<SaleItemResponseDto> item;
+
+    //private List<SaleAddressResponseDto> address;
 
     @JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
     private Date createdAt;

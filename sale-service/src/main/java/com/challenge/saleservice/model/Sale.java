@@ -4,6 +4,8 @@ import com.challenge.saleservice.model.enums.Status;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,14 +33,13 @@ public class Sale implements Serializable {
     private Status status;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(value = FetchMode.SUBSELECT)
     @JoinColumn(name = "sale_id")
     private List<Item> item;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(value = FetchMode.SUBSELECT)
-    @JoinColumn(name = "sale_id")
-    private List<Address> address;
+    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //@JoinColumn(name = "sale_id")
+    //@Fetch(value = FetchMode.SUBSELECT)
+    //private List<Address> address;
 
     @Column
     private Date createdAt;

@@ -36,7 +36,7 @@ public class SaleMapper {
 
         final var item = saleItemMapper.serializeListToDto(Optional.of(dto.getItem()));
 
-        final var address = saleAddressMapper.serializeListToDto(Optional.of(dto.getAddress()));
+        //final var address = saleAddressMapper.serializeListToDto(Optional.of(dto.getAddress()));
 
         return Optional.of(SaleResponseDto.builder()
                 .id(dto.getId())
@@ -44,7 +44,8 @@ public class SaleMapper {
                 .createdAt(dto.getCreatedAt())
                 .status(dto.getStatus())
                 .item(item.get())
-                .address(address.get())
+                //.address(address.get())
+                .createdAt(dto.getCreatedAt())
                 .build());
     }
 
@@ -53,14 +54,15 @@ public class SaleMapper {
 
         final var item = saleItemMapper.serializeListToModel(Optional.of(model.getItem()));
 
-        final var address = saleAddressMapper.serializeListToModel(Optional.of(model.getAddress()));
+        //final var address = saleAddressMapper.serializeListToModel(Optional.of(model.getAddress()));
 
         return Optional.of(Sale.builder()
                 .id(model.getId())
                 .confirmationDate(model.getConfirmationDate())
                 .status(model.getStatus())
                 .item(item.get())
-                .address(address.get())
+                //.address(address.get())
+                .createdAt(model.getCreatedAt())
                 .build());
     }
 }

@@ -65,6 +65,7 @@ public class SaleAddressMapper {
                 .city(model.getCity())
                 .uf(model.getUf())
                 .type(model.getType())
+                .createdAt(model.getCreatedAt())
                 .build());
     }
 }

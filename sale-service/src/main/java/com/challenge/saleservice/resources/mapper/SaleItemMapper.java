@@ -55,6 +55,7 @@ public class SaleItemMapper {
                 .description(model.getDescription())
                 .price(model.getPrice())
                 .quantity(model.getQuantity())
+                .createdAt(model.getCreatedAt())
                 .build());
     }
 }

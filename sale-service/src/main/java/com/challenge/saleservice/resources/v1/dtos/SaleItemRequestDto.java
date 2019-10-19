@@ -1,10 +1,12 @@
 package com.challenge.saleservice.resources.v1.dtos;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -27,4 +29,8 @@ public class SaleItemRequestDto {
     @Valid
     @NotNull
     private Integer quantity;
+
+    @Valid
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date createdAt;
 }

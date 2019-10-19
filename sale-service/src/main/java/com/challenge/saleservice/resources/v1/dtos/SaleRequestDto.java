@@ -1,6 +1,7 @@
 package com.challenge.saleservice.resources.v1.dtos;
 
 import com.challenge.saleservice.model.enums.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.EnumType;
@@ -30,9 +31,13 @@ public class SaleRequestDto {
 
     @Valid
     @NotNull
-    private List<SaleAddressRequestDto> address;
+    private List<SaleItemRequestDto> item;
+
+    //@Valid
+    //@NotNull
+    //private List<SaleAddressRequestDto> address;
 
     @Valid
-    @NotNull
-    private List<SaleItemRequestDto> item;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date createdAt;
 }
