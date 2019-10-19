@@ -1,6 +1,6 @@
 # Desafio de recrutamento da Invillia
-Para o desafio foram desenvolvidos 3 módulos independentes para atender os princípios de arquitetura de microsserviços, sendo loja, pedido e pagamento, onde cada módulo contém o seu próprio Dockerfile o que permite o isolando dos ambientes de cada projeto.
-Cada microserviço pode ser compilado e executado através do maven ou utilizando um container docker.
+> Para o desafio foram desenvolvidos 3 módulos independentes para atender os princípios de arquitetura de microsserviços, sendo loja, pedido e pagamento, onde cada módulo contém o seu próprio Dockerfile o que permite o isolando dos ambientes de cada projeto.
+> Cada microserviço pode ser compilado e executado através do maven ou utilizando um container docker.
 
 ## Requisitos
 ```sh
@@ -14,6 +14,7 @@ MySql (local ou docker)
 
 ## RESTfull service(s) URIs:
 > Para cada módulo foi disponibilizado todas as rotas de um CRUD.
+
 ##### MicroService API **Store**:
 * GET: 	`/challenge/v1/stores/{id}` - Buscar loja pelo Id
 * GET: 	`/challenge/v1/stores` - Buscar todas as lojas
@@ -38,6 +39,7 @@ MySql (local ou docker)
 
 ## Tecnologias
 > Para o desenvolvimento foram utilizadas as tecnologias abaixo:
+
  - Maven (Compilação)
  - Docker (Virtualização de contêiners)
  - Java (Linguagem de programação)
@@ -51,6 +53,7 @@ MySql (local ou docker)
 
 ## Extras
 > Recursos adicionados ao projeto mas não solicitados no desafio.
+
  - Coleção do postman - Anexo ao projeto tem o arquivo `_postman_collection/Challenge.postman_collection.json` que é a collection do postman utilizado nos testes do desenvolvimento.
  - Contratos - Anexo ao projeto tem os arquivos de contratos no diretório `_contracts` definidos no desenvolviemtno do projeto.
  - db Migrations / Seeders - Ao iniciar a aplicação será criado toda a estrutura de tabelas e adicionado uma massa de dados básica de loja, pedido e pagamento.
@@ -59,6 +62,7 @@ MySql (local ou docker)
 
 ## Variáveis de ​​ambiente
 > Para a variável {MODULE-NAME} utilizar `sale`, `store`, `payment` para cada. Em cada projeto foi adicionado os valores default.
+
 | variável | valor default |
 | ------ | ------ |
 | CHALLENGE_{MODULE-NAME}_ENV | development |
