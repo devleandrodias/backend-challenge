@@ -1,0 +1,5 @@
+INSERT INTO `challenge_payment`.`payment` (`id`, `credit_card_number`, `status`, `created_at`) VALUES ('1', '5568 2546 9415 3590', 'COMPLETE', '2019-10-10 00:00:00');
+INSERT INTO `challenge_payment`.`payment` (`id`, `credit_card_number`, `status`, `created_at`) VALUES ('2', '4916 6536 1572 2767', 'APPROVED', '2019-10-10 00:00:00');
+INSERT INTO `challenge_payment`.`payment` (`id`, `credit_card_number`, `status`, `created_at`) VALUES ('3', '3428 958755 82900', 'APPROVED', '2019-10-10 00:00:00');
+INSERT INTO `challenge_payment`.`payment` (`id`, `credit_card_number`, `status`, `created_at`) VALUES ('4', '3672 905293 9479', 'ANALYSIS', '2019-10-10 00:00:00');
+INSERT INTO `challenge_payment`.`payment` (`id`, `credit_card_number`, `status`, `created_at`) VALUES ('5', '6011 3568 4380 9567', 'CANCELED', '2019-10-10 00:00:00');
