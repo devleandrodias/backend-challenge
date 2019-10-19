@@ -1,53 +1,71 @@
-# Invillia recruitment challenge
+# Desafio de recrutamento da Invillia
+Para o desafio foram desenvolvidos 3 módulos independentes para atender os princípios de arquitetura de microsserviços, sendo loja, pedido e pagamento, onde cada módulo contém o seu próprio Dockerfile o que permite o isolando dos ambientes de cada projeto.
+Cada microserviço pode ser compilado e executado através do maven ou utilizando um container docker.
 
-[![Build Status](https://travis-ci.org/shelsonjava/invillia.svg?branch=master)](https://travis-ci.org/shelsonjava/invillia)
+## Requisitos
+```sh
+Java 11
+Maven
+Docker
+Docker Compose
+Plugin Lombok
+MySql (local ou docker)
+```
 
-![Invillia Logo](https://invillia.com/public/assets/img/logo-invillia.svg)
-[Invillia](https://https://www.invillia.com/) - A transformação começa aqui.
+## RESTfull service(s) URIs:
+> Para cada módulo foi disponibilizado todas as rotas de um CRUD.
+##### MicroService API **Store**:
+* GET: 	`/challenge/v1/stores/{id}` - Buscar loja pelo Id
+* GET: 	`/challenge/v1/stores` - Buscar todas as lojas
+* GET: 	`/challenge/v1/stores/filter?{name}` - Buscar loja por filtros
+* POST: 	`/challenge/v1/stores` - Serviço responsável por cadastrar a loja
+* PUT:	`/challenge/v1/stores/{id}` - Serviço responsável por atualizar a loja
+* DELETE: `/challenge/v1/stores/{id}` - Serviço responsável por remover a loja pelo Id
 
-The ACME company is migrating their monolithic system to a microservice architecture and you’re responsible to build their MVP (minimum viable product)  .
-https://en.wikipedia.org/wiki/Minimum_viable_product
+##### MicroService API **Sale**:
+* GET: 	`/challenge/v1/sales/{id}` - Buscar venda pelo Id
+* GET: 	`/challenge/v1/sales` - Buscar todas as vendas
+* POST: 	`/challenge/v1/sales` - Serviço responsável por cadastrar a venda
+* PUT:	`/challenge/v1/sales/{id}` - Serviço responsável por atualizar a venda
+* DELETE: `/challenge/v1/sales/{id}` - Serviço responsável por remover a venda pelo Id
 
-Your challenge is:
-Build an application with those features described below, if you think the requirements aren’t detailed enough please leave a comment (portuguese or english) and proceed as best as you can.
+##### MicroService API **Payment**:
+* GET: 	`/challenge/v1/payments/{id}` - Buscar pagamento pelo Id
+* GET: 	`/challenge/v1/payments` - Buscar todas os pagamentos
+* POST: 	`/challenge/v1/payments` - Serviço responsável por cadastrar o pagamento
+* PUT: 	`/challenge/v1/payments/{id}` - Serviço responsável por atualizar o pagamento
+* DELETE: `/challenge/v1/payments/{id}` - Serviço responsável por remover a pagamento pelo Id
 
-You can choose as many features you think it’s necessary for the MVP,  IT’S NOT necessary build all the features, we strongly recommend to focus on quality over quantity, you’ll be evaluated by the quality of your solution.
+## Tecnologias
+> Para o desenvolvimento foram utilizadas as tecnologias abaixo:
+ - Maven (Compilação)
+ - Docker (Virtualização de contêiners)
+ - Java (Linguagem de programação)
+ - JUnit (Teste unitários)
+ - Mockito (Mock de testes)
+ - Spring Boot (Framework)
+ - Mysql (base de dados)
+ - Flyway (Controle de versões da base de dados `db Migrations`)
+ - Swagger (Documentação de api `http://localhost:8080/swagger-ui.html`)
+ - Spring Security JWT (Gerar o token acessar https://jwt.io/ e utilizar o valor da variável de ambinete JWT_SECRET_KEY)
 
-If you think something is really necessary but you don’t have enough time to implement please at least explain how you would implement it.
+## Extras
+> Recursos adicionados ao projeto mas não solicitados no desafio.
+ - Coleção do postman - Anexo ao projeto tem o arquivo `_postman_collection/Challenge.postman_collection.json` que é a collection do postman utilizado nos testes do desenvolvimento.
+ - Contratos - Anexo ao projeto tem os arquivos de contratos no diretório `_contracts` definidos no desenvolviemtno do projeto.
+ - db Migrations / Seeders - Ao iniciar a aplicação será criado toda a estrutura de tabelas e adicionado uma massa de dados básica de loja, pedido e pagamento.
+ - Circleci - Foi aplicado o circleci no projeto mas resolvi remover para dar mais atenção aos módulos.
+ - Testes unitários - Foi implementado uma cobertura de testes mínima para cada microserviço desenvolvido utilizando JUnit, Mockito e Faker.
 
-## Tasks
+## Variáveis de ​​ambiente
 
-Your task is to develop one (or more, feel free) RESTful service(s) to:
-* Create a **Store**
-* Update a **Store** information
-* Retrieve a **Store** by parameters
-* Create an **Order** with items
-* Create a **Payment** for an **Order**
-* Retrieve an **Order** by parameters
-* Refund **Order** or any **Order Item**
 
-Fork this repository and submit your code with partial commits.
+## Não aplicados
+ - AWS
+ - Spring Cloud Netflix
 
-## Business Rules
+## Regras
+Ao incluir um novo pedido com seus itens, o status será gravado como pendente e sem data de confirmação.
+Ao incluir um novo pagamento, o status será gravado como #########.
+Ao atualizar o status do pedido para #########, será gravado a data de confirmação.
 
-* A **Store** is composed by name and address
-* An **Order** is composed by address, confirmation date and status
-* An **Order Item** is composed by description, unit price and quantity.
-* A **Payment** is composed by status, credit card number and payment date
-* An **Order** just should be refunded until ten days after confirmation and the payment is concluded.
-
-## Non functional requirements
-
-Your service(s) must be resilient, fault tolerant, responsive. You should prepare it/them to be highly scalable as possible.
-
-The process should be closest possible to "real-time", balancing your choices in order to achieve the expected
-scalability.
-
-## Nice to have features (describe or implement):
-* Asynchronous processing
-* Database
-* Docker
-* AWS
-* Security
-* Swagger
-* Clean Code
