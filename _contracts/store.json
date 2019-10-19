@@ -1,0 +1,18 @@
+{
+    "id": 1,
+    "name": "Loja 1",
+    "address": [
+        {
+            "id": 1,
+            "street": "Rua: Um",
+            "number": "1",
+            "complement": "casa",
+            "zipcode": "123456-789",
+            "neighborhood": "centro",
+            "city": "Ribeirão Preto",
+            "uf": "SP",
+            "createdAt": "10-10-2019 00:00:00"
+        }
+    ],
+    "createdAt": "10-10-2019 00:00:00"
+}
