@@ -47,7 +47,7 @@ MySql (local ou docker)
  - Mysql (base de dados)
  - Flyway (Controle de versões da base de dados `db Migrations`)
  - Swagger (Documentação de api `http://localhost:8080/swagger-ui.html`)
- - Spring Security JWT (Gerar o token acessar https://jwt.io/ e utilizar o valor da variável de ambinete JWT_SECRET_KEY)
+ - Spring Security JWT (Gerar o token acessando https://jwt.io/ com o valor `stubJWT`)
 
 ## Extras
 > Recursos adicionados ao projeto mas não solicitados no desafio.
@@ -58,14 +58,22 @@ MySql (local ou docker)
  - Testes unitários - Foi implementado uma cobertura de testes mínima para cada microserviço desenvolvido utilizando JUnit, Mockito e Faker.
 
 ## Variáveis de ​​ambiente
-
+> Para a variável {MODULE-NAME} utilizar `sale`, `store`, `payment` para cada. Em cada projeto foi adicionado os valores default.
+| variável | valor default |
+| ------ | ------ |
+| CHALLENGE_{MODULE-NAME}_ENV | development |
+| CHALLENGE_{MODULE-NAME}_DATASOURCE_URL | jdbc:mysql://127.0.0.1:3306/challenge_{MODULE-NAME}?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC |
+| CHALLENGE_{MODULE-NAME}_DATASOURCE_USERNAME | challenge |
+| CHALLENGE_{MODULE-NAME}_DATASOURCE_PASSWORD |!@12QWqw  |
+| CHALLENGE_{MODULE-NAME}_SECURITY_BASIC_NAME | challenge |
+| CHALLENGE_{MODULE-NAME}_SECURITY_BASIC_PASSWORD | challenge |
+| CHALLENGE_{MODULE-NAME}_SECURITY_JWT_SECRET_KEY | stubJWT |
 
 ## Não aplicados
  - AWS
  - Spring Cloud Netflix
 
 ## Regras
-Ao incluir um novo pedido com seus itens, o status será gravado como pendente e sem data de confirmação.
-Ao incluir um novo pagamento, o status será gravado como #########.
-Ao atualizar o status do pedido para #########, será gravado a data de confirmação.
-
+Ao incluir um novo pedido com seus itens, o status será gravado como `OPEN` e sem data de confirmação.
+Ao incluir um novo pagamento, o status será gravado como `COMPLETE`.
+Ao atualizar o status do pedido para `CONCLUDED`, será gravado a data de confirmação.
