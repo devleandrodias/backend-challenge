@@ -1,0 +1,631 @@
+{
+	"info": {
+		"_postman_id": "f1f90c5e-9ef7-4925-a0b5-2da1ba92c442",
+		"name": "Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Post Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Teste 10\",\r\n    \"address\": [\r\n        {\r\n            \"street\": \"Rua: Dez\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Store",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6,\r\n    \"name\": \"Teste 11\",\r\n    \"address\": [\r\n        {\r\n            \"id\": 6,\r\n            \"street\": \"Rua: Onze\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/stores/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"stores",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Store By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/stores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"stores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Stores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Stores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/stores/filter?name=loja",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"stores",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "loja"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Store By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/stores/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"stores",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Sale",
+			"item": [
+				{
+					"name": "Post Sale",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"confirmationDate\": null,\r\n    \"status\": \"OPEN\",\r\n    \"item\": [\r\n        {\r\n            \"description\": \"Produto: Seis\",\r\n            \"price\": 2.00,\r\n            \"quantity\": 1\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"street\": \"Rua: Um\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"type\": \"MAIN\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/sales",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Sale",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": 1,\r\n    \"confirmationDate\": null,\r\n    \"status\": \"OPEN\",\r\n    \"item\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"description\": \"Produto: Seis\",\r\n            \"price\": 2.00,\r\n            \"quantity\": 1,\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"street\": \"Rua: Seis\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"type\": \"MAIN\",\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/sales/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"sales",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Sale Refunded",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": 1,\r\n    \"confirmationDate\": \"2019-09-10 00:00:00\",\r\n    \"status\": \"REFUNDED\",\r\n    \"item\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"description\": \"Produto: Um\",\r\n            \"price\": 2.00,\r\n            \"quantity\": 1,\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"street\": \"Rua: Seis\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"type\": \"MAIN\",\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/sales/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"sales",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sale By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/sales/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"sales",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sales",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/sales",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Sales By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/sales/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"sales",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Post Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"COMPLETE\",\r\n    \"creditCardNumber\": \"123 456 789 0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Payment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": 1,\r\n    \"status\": \"APPROVED\",\r\n    \"creditCardNumber\": \"123 456 789 0\",\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/payments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"payments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/payments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"payments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Payment By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/payments/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"payments",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "52185566-60f1-4715-986a-f3f1373749f6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a30bd2ca-c45d-4c5e-86d9-bc3b470d9c8a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
