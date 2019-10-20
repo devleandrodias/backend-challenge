@@ -69,7 +69,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 6,\r\n    \"name\": \"Teste 11\",\r\n    \"address\": [\r\n        {\r\n            \"id\": 6,\r\n            \"street\": \"Rua: Onze\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
+							"raw": "{\r\n    \"id\": 8,\r\n    \"name\": \"Teste 11\",\r\n    \"address\": [\r\n        {\r\n            \"id\": 8,\r\n            \"street\": \"Rua: Onze\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -77,7 +77,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/challenge/v1/stores/6",
+							"raw": "http://localhost:8080/challenge/v1/stores/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -87,7 +87,7 @@
 								"challenge",
 								"v1",
 								"stores",
-								"6"
+								"5"
 							]
 						}
 					},
@@ -194,7 +194,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/challenge/v1/stores/6",
+							"raw": "http://localhost:8080/challenge/v1/stores/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -204,7 +204,7 @@
 								"challenge",
 								"v1",
 								"stores",
-								"6"
+								"1"
 							]
 						}
 					},
@@ -235,7 +235,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"confirmationDate\": null,\r\n    \"status\": \"OPEN\",\r\n    \"item\": [\r\n        {\r\n            \"description\": \"Produto: Seis\",\r\n            \"price\": 2.00,\r\n            \"quantity\": 1\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"street\": \"Rua: Um\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"type\": \"MAIN\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"item\": [\r\n        {\r\n            \"description\": \"Produto: Seis\",\r\n            \"price\": 2.00,\r\n            \"quantity\": 1\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"street\": \"Rua: Um\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"type\": \"MAIN\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -320,7 +320,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": 1,\r\n    \"confirmationDate\": \"2019-09-10 00:00:00\",\r\n    \"status\": \"REFUNDED\",\r\n    \"item\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"description\": \"Produto: Um\",\r\n            \"price\": 2.00,\r\n            \"quantity\": 1,\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"street\": \"Rua: Seis\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"type\": \"MAIN\",\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
+							"raw": "{\r\n\t\"id\": 1,\r\n    \"confirmationDate\": null,\r\n    \"status\": \"REFUNDED\",\r\n    \"item\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"description\": \"Produto: Um\",\r\n            \"price\": 2.00,\r\n            \"quantity\": 1,\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n        \t\"id\": 1,\r\n            \"street\": \"Rua: Seis\",\r\n            \"number\": \"1\",\r\n            \"complement\": \"casa\",\r\n            \"zipcode\": \"123456-789\",\r\n            \"neighborhood\": \"centro\",\r\n            \"city\": \"Ribeirão Preto\",\r\n            \"uf\": \"SP\",\r\n            \"type\": \"MAIN\",\r\n            \"createdAt\": \"2019-10-10 00:00:00\"\r\n        }\r\n    ],\r\n    \"createdAt\": \"2019-10-10 00:00:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -400,6 +400,40 @@
 					"response": []
 				},
 				{
+					"name": "Filter Sales",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/challenge/v1/sales/filter?status=OPEN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"challenge",
+								"v1",
+								"sales",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "OPEN"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Sales By Id",
 					"request": {
 						"method": "DELETE",
@@ -452,7 +486,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"status\": \"COMPLETE\",\r\n    \"creditCardNumber\": \"123 456 789 0\"\r\n}",
+							"raw": "{\r\n    \"status\": \"ANALYSIS\",\r\n    \"creditCardNumber\": \"123 456 789 0\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

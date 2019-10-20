@@ -1,6 +1,8 @@
 # Desafio de recrutamento da Invillia
 > Para o desafio foram desenvolvidos 3 módulos independentes para atender os princípios de arquitetura de microsserviços, sendo loja, pedido e pagamento, onde cada módulo contém o seu próprio Dockerfile o que permite o isolamento dos ambientes de cada projeto.
+
 > Cada microserviço pode ser compilado e executado através do maven ou utilizando um container docker.
+
 > Para atender os requisitos de clean code foi utilizado métodos para manter o código limpo, legivel e produtivo com a ajuda do plugin `Lombok`. 
 
 
@@ -44,7 +46,9 @@ MySql (local ou docker)
 
 ## Regras adicionadas
 > Ao incluir um novo pedido com seus itens, o status será gravado como `OPEN` e sem data de confirmação.
+
 > Ao incluir um novo pagamento, o status será gravado como `COMPLETE`.
+
 > Ao atualizar o status do pedido para `CONCLUDED`, será gravado a data de confirmação.
 
 
@@ -93,6 +97,7 @@ MySql (local ou docker)
 ## Não aplicados
  - AWS
  > Para Cloud AWS seria utilizado os serviços `EC2` para servers, `Security Groups` para controlar o tráfego de entrada e saída das aplicações, `Load Balancers` para distribuição de carga, `VPC` nuvem privada virtual em uma rede definida, `IAM` para definir privilégios de acesso aos grupos de usuários, `RDS Mysql` para a base de dados, `Route 53` para o gerencimento de DNS.
+ 
  > Seria feito um teste de comportamento dos microserviços utilizando `AWS Lambda` e `Serverless` analisando o tempo de resposta e o custo da aplicação por um determinado período.
  
  - Spring Cloud Netflix
