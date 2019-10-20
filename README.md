@@ -1,6 +1,8 @@
 # Desafio de recrutamento da Invillia
-> Para o desafio foram desenvolvidos 3 módulos independentes para atender os princípios de arquitetura de microsserviços, sendo loja, pedido e pagamento, onde cada módulo contém o seu próprio Dockerfile o que permite o isolando dos ambientes de cada projeto.
+> Para o desafio foram desenvolvidos 3 módulos independentes para atender os princípios de arquitetura de microsserviços, sendo loja, pedido e pagamento, onde cada módulo contém o seu próprio Dockerfile o que permite o isolamento dos ambientes de cada projeto.
 > Cada microserviço pode ser compilado e executado através do maven ou utilizando um container docker.
+> Para atender os requisitos de clean code foi utilizado métodos para manter o código limpo, legivel e produtivo com a ajuda do plugin `Lombok`. 
+
 
 ## Requisitos
 ```sh
@@ -12,13 +14,14 @@ Plugin Lombok
 MySql (local ou docker)
 ```
 
+
 ## RESTfull service(s) URIs:
 > Para cada módulo foi disponibilizado todas as rotas de um CRUD.
 
 ##### MicroService API **Store**:
 * GET: 	`/challenge/v1/stores/{id}` - Buscar loja pelo Id
 * GET: 	`/challenge/v1/stores` - Buscar todas as lojas
-* GET: 	`/challenge/v1/stores/filter?{name}` - Buscar loja por filtros
+* GET: 	`/challenge/v1/stores/filter?{name}` - Buscar lojas por filtros
 * POST: 	`/challenge/v1/stores` - Serviço responsável por cadastrar a loja
 * PUT:	`/challenge/v1/stores/{id}` - Serviço responsável por atualizar a loja
 * DELETE: `/challenge/v1/stores/{id}` - Serviço responsável por remover a loja pelo Id
@@ -26,6 +29,7 @@ MySql (local ou docker)
 ##### MicroService API **Sale**:
 * GET: 	`/challenge/v1/sales/{id}` - Buscar venda pelo Id
 * GET: 	`/challenge/v1/sales` - Buscar todas as vendas
+* GET: 	`/challenge/v1/sales/filter?{status}` - Buscar vendas por filtros
 * POST: 	`/challenge/v1/sales` - Serviço responsável por cadastrar a venda
 * PUT:	`/challenge/v1/sales/{id}` - Serviço responsável por atualizar a venda
 * DELETE: `/challenge/v1/sales/{id}` - Serviço responsável por remover a venda pelo Id
@@ -37,31 +41,33 @@ MySql (local ou docker)
 * PUT: 	`/challenge/v1/payments/{id}` - Serviço responsável por atualizar o pagamento
 * DELETE: `/challenge/v1/payments/{id}` - Serviço responsável por remover a pagamento pelo Id
 
+
+## Regras adicionadas
+> Ao incluir um novo pedido com seus itens, o status será gravado como `OPEN` e sem data de confirmação.
+> Ao incluir um novo pagamento, o status será gravado como `COMPLETE`.
+> Ao atualizar o status do pedido para `CONCLUDED`, será gravado a data de confirmação.
+
+
 ## Tecnologias
-> Para o desenvolvimento foram utilizadas as tecnologias abaixo:
+> Para o desenvolvimento foram utilizadas as tecnologias:
 
  - Maven (Compilação)
- - Docker (Virtualização de contêiners)
+ - Spring Boot (Framework)
  - Java (Linguagem de programação)
+ - JPA (Persistência de dados)
  - JUnit (Teste unitários)
  - Mockito (Mock de testes)
- - Spring Boot (Framework)
- - Mysql (base de dados)
+ - MySQL (base de dados)
  - Flyway (Controle de versões da base de dados `db Migrations`)
+ - Faker (Mock de dados)
+ - Lombok (Desenvolvimento ágil)
  - Swagger (Documentação de api `http://localhost:8080/swagger-ui.html`)
  - Spring Security JWT (Gerar o token acessando https://jwt.io/ com o valor `stubJWT`)
+ - Docker (Virtualização de contêiners)
 
-## Extras
-> Recursos adicionados ao projeto mas não solicitados no desafio.
-
- - Coleção do postman - Anexo ao projeto tem o arquivo `_postman_collection/Challenge.postman_collection.json` que é a collection do postman utilizado nos testes do desenvolvimento.
- - Contratos - Anexo ao projeto tem os arquivos de contratos no diretório `_contracts` definidos no desenvolviemtno do projeto.
- - db Migrations / Seeders - Ao iniciar a aplicação será criado toda a estrutura de tabelas e adicionado uma massa de dados básica de loja, pedido e pagamento.
- - Circleci - Foi aplicado o circleci no projeto mas resolvi remover para dar mais atenção aos módulos.
- - Testes unitários - Foi implementado uma cobertura de testes mínima para cada microserviço desenvolvido utilizando JUnit, Mockito e Faker.
 
 ## Variáveis de ​​ambiente
-> Para a variável {MODULE-NAME} utilizar `sale`, `store`, `payment` para cada. Em cada projeto foi adicionado os valores default.
+> Para a variável {MODULE-NAME} substituir para o nome do seu respectivo projeto, `sale`, `store`, `payment` para rodar a aplicação.
 
 | variável | valor default |
 | ------ | ------ |
@@ -73,11 +79,28 @@ MySql (local ou docker)
 | CHALLENGE_{MODULE-NAME}_SECURITY_BASIC_PASSWORD | challenge |
 | CHALLENGE_{MODULE-NAME}_SECURITY_JWT_SECRET_KEY | stubJWT |
 
+
+## Extras adicionados
+> Recursos adicionados ao projeto mas não solicitados no desafio.
+
+ - Coleção do postman - No projeto tem o arquivo `_postman_collection/Challenge.postman_collection.json` que é a collection do postman utilizado nos testes do desenvolvimento.
+ - Contratos - No projeto tem os arquivos de contratos no diretório `_contracts` definidos no desenvolviemtno do projeto.
+ - db Migrations / Seeders - Ao iniciar a aplicação será criado toda a estrutura de tabelas e adicionado uma massa de dados básica de loja, pedido e pagamento para testes.
+ - Circleci - Foi aplicado o circleci no projeto mas resolvi remover para dar mais atenção aos módulos e suas regras.
+ - Testes unitários - Foi implementado uma cobertura de testes mínima para cada microserviço desenvolvido utilizando JUnit, Mockito e Faker.
+
+
 ## Não aplicados
  - AWS
+ > Para Cloud AWS seria utilizado os serviços `EC2` para servers, `Security Groups` para controlar o tráfego de entrada e saída das aplicações, `Load Balancers` para distribuição de carga, `VPC` nuvem privada virtual em uma rede definida, `IAM` para definir privilégios de acesso aos grupos de usuários, `RDS Mysql` para a base de dados, `Route 53` para o gerencimento de DNS.
+ > Seria feito um teste de comportamento dos microserviços utilizando `AWS Lambda` e `Serverless` analisando o tempo de resposta e o custo da aplicação por um determinado período.
+ 
  - Spring Cloud Netflix
-
-## Regras
-Ao incluir um novo pedido com seus itens, o status será gravado como `OPEN` e sem data de confirmação.
-Ao incluir um novo pagamento, o status será gravado como `COMPLETE`.
-Ao atualizar o status do pedido para `CONCLUDED`, será gravado a data de confirmação.
+ > 
+ 
+ - Criptografia de dados do cartão de crédito
+ > Para segurança da informação seria importante a criptografia dos dados, para isto eu utilizaria o método de criptografia `Salt` onde é gerado uma criptografia dupla, sendo uma somente com os dados do cartão e depois novamente com o `Salt` (identificador unico de criptografia).
+ 
+ - Método de refound
+ > 
+ 

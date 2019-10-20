@@ -12,4 +12,5 @@ public interface SaleBusiness {
     Optional<Sale> update(@NonNull final Sale sale);
     void delete(@NonNull final Integer id);
     Optional<Sale> findById(@NonNull final Integer id);
+    Optional<List<Sale>> findByParameters(@NonNull final String status);
 }

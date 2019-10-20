@@ -108,4 +108,20 @@ public class SaleController {
                 .body(saleMapper
                         .serializeToDto(saleBusiness.findById(id)));
     }
+
+    @GetMapping("/filter")
+    @ResponseBody
+    @ApiOperation(value = "Find Sales", response = SaleResponseDto.class, produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Internal Server Error")})
+    public ResponseEntity<Optional<List<SaleResponseDto>>> findByParameters(@RequestParam(required = false) final String status) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(saleMapper
+                        .serializeListToDto(saleBusiness.findByParameters(status)));
+    }
 }

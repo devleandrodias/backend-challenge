@@ -25,7 +25,6 @@ public class SaleRequestDto {
     private Date confirmationDate;
 
     @Valid
-    @NotNull
     @Enumerated(EnumType.STRING)
     private Status status;
 

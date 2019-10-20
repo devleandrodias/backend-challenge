@@ -3,6 +3,7 @@ package com.challenge.paymentservice.business.Impl;
 import com.challenge.paymentservice.business.PaymentBusiness;
 import com.challenge.paymentservice.exception.PaymentNotFoundException;
 import com.challenge.paymentservice.model.Payment;
+import com.challenge.paymentservice.model.enums.Status;
 import com.challenge.paymentservice.repository.PaymentRepository;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class PaymentBusinessImpl implements PaymentBusiness {
 
     @Override
     public Optional<Payment> create(@NonNull Payment payment) {
+        payment.setStatus(Status.COMPLETE);
         return Optional.of(paymentRepository.saveAndFlush(payment));
     }
 
