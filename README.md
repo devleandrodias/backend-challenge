@@ -21,6 +21,8 @@ MySql (local ou docker)
 > Para cada módulo foi disponibilizado todas as rotas de um CRUD.
 
 ##### MicroService API **Store**:
+> Para o módulo de loja foi criado uma estrutura que permite uma loja ter vários endereços.
+
 * GET: 	`/challenge/v1/stores/{id}` - Buscar loja pelo Id
 * GET: 	`/challenge/v1/stores` - Buscar todas as lojas
 * GET: 	`/challenge/v1/stores/filter?{name}` - Buscar lojas por filtros
@@ -29,6 +31,8 @@ MySql (local ou docker)
 * DELETE: `/challenge/v1/stores/{id}` - Serviço responsável por remover a loja pelo Id
 
 ##### MicroService API **Sale**:
+> Para o módulo de venda foi criado uma estrutura que permite uma venda ter vários itens e endereços, onde os endereços são tipados em principal, entrega e cobrança.
+
 * GET: 	`/challenge/v1/sales/{id}` - Buscar venda pelo Id
 * GET: 	`/challenge/v1/sales` - Buscar todas as vendas
 * GET: 	`/challenge/v1/sales/filter?{status}` - Buscar vendas por filtros
@@ -37,6 +41,8 @@ MySql (local ou docker)
 * DELETE: `/challenge/v1/sales/{id}` - Serviço responsável por remover a venda pelo Id
 
 ##### MicroService API **Payment**:
+> Para o módulo de pagamento foi criado uma estrutura que permite realizar o pagamento de uma venda.
+
 * GET: 	`/challenge/v1/payments/{id}` - Buscar pagamento pelo Id
 * GET: 	`/challenge/v1/payments` - Buscar todas os pagamentos
 * POST: 	`/challenge/v1/payments` - Serviço responsável por cadastrar o pagamento
@@ -45,11 +51,11 @@ MySql (local ou docker)
 
 
 ## Regras adicionadas
-> Ao incluir um novo pedido com seus itens, o status será gravado como `OPEN` e sem data de confirmação.
+> Foi adicionado regras que entendi ser o melhor para o negócio baseado em meu conhecimento.
 
-> Ao incluir um novo pagamento, o status será gravado como `COMPLETE`.
-
-> Ao atualizar o status do pedido para `CONCLUDED`, será gravado a data de confirmação.
+* Ao incluir um novo pedido com seus itens, o status será gravado como `OPEN` e sem data de confirmação.
+* Ao incluir um novo pagamento, o status será gravado como `COMPLETE`.
+* Ao atualizar o status do pedido para `CONCLUDED`, será gravado a data de confirmação.
 
 
 ## Tecnologias
@@ -101,11 +107,11 @@ MySql (local ou docker)
  > Seria feito um teste de comportamento dos microserviços utilizando `AWS Lambda` e `Serverless` analisando o tempo de resposta e o custo da aplicação por um determinado período.
  
  - Spring Cloud Netflix
- > 
+ > Pensei em utilizar os serviços do Spring Cloud Netflix `Eureka`, `Zuul`, `Ribbon`, `Hystrix` mas por ter conhecimento somente teórico e não pratico acebei não aplicando ao projeto.
  
  - Criptografia de dados do cartão de crédito
  > Para segurança da informação seria importante a criptografia dos dados, para isto eu utilizaria o método de criptografia `Salt` onde é gerado uma criptografia dupla, sendo uma somente com os dados do cartão e depois novamente com o `Salt` (identificador unico de criptografia).
  
- - Método de refound
- > 
+ - Método de reembolso
+ > Não foi feito o método de reembolso mas seria desenvolvido uma rota na api de venda `/challenge/v1/sales/{id}/refound` seguindo as regras do desafio onde somente seria possível aplicar um reembolso caso o pedido estiver com o pagamento concluído e em até no máximo 10 dias da confirmação.
  
